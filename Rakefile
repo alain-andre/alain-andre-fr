@@ -9,17 +9,17 @@ ssh_port       = "22"
 document_root  = "~/website.com/"
 rsync_delete   = false
 rsync_args     = ""  # Any extra arguments to pass to rsync
-deploy_default = "rsync"
+deploy_default = "heroku"
 
 # This will be configured for you when you run config_deploy
-deploy_branch  = "gh-pages"
+deploy_branch  = "master"
 
 ## -- Misc Configs -- ##
 
 public_dir      = "public"    # compiled site directory
 source_dir      = "source"    # source file directory
 blog_index_dir  = 'source'    # directory for your blog's index page (if you put your index in source/blog/index.html, set this to 'source/blog')
-deploy_dir      = "_deploy"   # deploy directory (for Github pages deployment)
+deploy_dir      = "_heroku"   # deploy directory (for Heroku pages deployment)
 stash_dir       = "_stash"    # directory to stash posts for speedy generation
 posts_dir       = "_posts"    # directory for blog files
 themes_dir      = ".themes"   # directory for blog files
@@ -214,6 +214,25 @@ end
 # Deploying  #
 ##############
 
+desc "deploy basic rack app to heroku"
+multitask :heroku do
+  puts "## Deploying to Heroku "
+  (Dir["#{deploy_dir}/public/*"]).each { |f| rm_rf(f) }
+  system "cp -R #{public_dir}/* #{deploy_dir}/public"
+  puts "\n## copying #{public_dir} to #{deploy_dir}/public"
+  cd "#{deploy_dir}" do
+    system "git add ."
+    system "git add -u"
+    puts "\n## Committing: Site updated at #{Time.now.utc}"
+    message = "Site updated at #{Time.now.utc}"
+    system "git commit -m '#{message}'"
+    puts "\n## Pushing generated #{deploy_dir} website"
+    system "git push heroku #{deploy_branch}"
+    puts "\n## Heroku deploy complete"
+  end
+end
+
+
 desc "Default deploy task"
 task :deploy do
   # Check if preview posts exist, which should not be published
@@ -252,7 +271,7 @@ desc "deploy public directory to github pages"
 multitask :push do
   puts "## Deploying branch to Github Pages "
   puts "## Pulling any updates from Github Pages "
-  cd "#{deploy_dir}" do 
+  cd "#{deploy_dir}" do
     system "git pull"
   end
   (Dir["#{deploy_dir}/*"]).each { |f| rm_rf(f) }

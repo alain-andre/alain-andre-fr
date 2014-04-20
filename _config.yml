@@ -2,11 +2,11 @@
 #      Main Configs       #
 # ----------------------- #
 
-url: http://yoursite.com
-title: My Octopress Blog
-subtitle: A blogging framework for hackers.
-author: Your Name
-simple_search: https://www.google.com/search
+url: http://alain-andre.fr
+title: Alain ANDRE
+subtitle: Nos limites ne sont que l'ombre de nos peurs.
+author: Alain ANDRE
+simple_search: http://www.ecosia.org/search
 description:
 
 # Default date format is "ordinal" (resulting in "July 22nd 2007")
@@ -69,7 +69,7 @@ github_show_profile_link: true
 github_skip_forks: true
 
 # Twitter
-twitter_user:
+twitter_user: al1_andre
 twitter_tweet_button: true
 
 # Google +1

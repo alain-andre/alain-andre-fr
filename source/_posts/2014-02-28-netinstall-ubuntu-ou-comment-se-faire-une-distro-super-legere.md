@@ -2,7 +2,7 @@
 title: 'Netinstall ubuntu ou comment se faire une distro super legère.'
 author: Alain ANDRE
 layout: post
-permalink: /2014/02/28/Netinstall_ubuntu_ou_comment_se_faire_une_distro_super_legere
+date: 2014-02-28 20:06:36 +0200
 categories:
   - Petits tutos
 tags:
@@ -24,7 +24,7 @@ J'ai vraiment envie de garder mon environnement **Gnome shell** habituel, mais l
 
 ## Étape 1
 
-Tout d'abord, il faut choisir la [version][1] que l'on souhaite installer. Une fois votre version choisi (saucy 32b pour moi), téléchargez la.
+Tout d'abord, il faut choisir la [version][1] que l'on souhaite installer. Une fois votre version choisie (saucy 32b pour moi), téléchargez la.
 ```bash
 wget http://archive.ubuntu.com/ubuntu/dists/saucy/main/installer-i386/current/images/netboot/mini.iso
 ```

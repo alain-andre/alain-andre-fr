@@ -2,7 +2,7 @@
 title: Upload de gros fichiers vers Amazon S3
 author: Alain ANDRE
 layout: post
-permalink: /2013/09/19/upload_de_gros_fichiers_vers_amazon_s3
+date: 2013-09-19 23:06:36 +0200
 categories:
   - Amazon Web Services
   - Ruby on Rails

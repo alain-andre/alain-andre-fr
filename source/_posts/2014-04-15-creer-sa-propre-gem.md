@@ -2,9 +2,7 @@
 title: Créer sa propre gem
 author: Alain ANDRE
 layout: post
-permalink: /2013/09/02/Creer_sa_propre_gem
-post_views_count:
-  - 4
+date: 2014-04-15 15:01:36 +0200
 categories:
   - Ruby on Rails
 tags:
@@ -63,6 +61,12 @@ Voila ! c'est le minimum. On va pouvoir **construire** notre super gem.
 Pour l'utiliser on va l'installer à partir de notre dossier source :
 ```bash
   $ gem install ./my_gem-0.0.1.gem
+  Successfully installed my_gem-0.0.1
+  Parsing documentation for my_gem-0.0.1
+  Installing ri documentation for my_gem-0.0.1
+  Done installing documentation for my_gem after 0 seconds
+  Done installing documentation for my_gem (0 sec).
+  1 gem installed
 ```
 
 Et on va l'utiliser afin de la tester :
@@ -72,6 +76,7 @@ Et on va l'utiliser afin de la tester :
   => true
   >> MyGem.salut
   Salut tout le monde !
+  => nil
 ```
 
 Maintenant on va la déployer sur rubygem.org afin que tous puissent en profiter (il vous faut avoir un compte rubygem).

@@ -2,7 +2,7 @@
 title: 'ActiveRecord et json : ajouter des noeuds'
 author: Alain ANDRE
 layout: post
-permalink: /2013/09/07/activerecord_et_json_ajouter_des_noeuds
+date: 2013-09-07 20:16:16 +0200
 categories:
   - Ruby on Rails
 tags:

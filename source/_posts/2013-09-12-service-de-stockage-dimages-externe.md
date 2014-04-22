@@ -2,7 +2,7 @@
 title: 'Service de stockage d&#8217;images externe'
 author: Alain ANDRE
 layout: post
-permalink: /2013/09/12/service_de_stockage_dimage_externe
+date: 2013-09-12 12:09:16 +0200
 categories:
   - Amazon Web Services
   - Ruby on Rails

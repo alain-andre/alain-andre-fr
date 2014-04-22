@@ -2,7 +2,7 @@
 title: 'Un gravatar si pas d&#8217;image'
 author: Alain ANDRE
 layout: post
-permalink: /2013/09/20/un_gravatar_si_pas_dimage
+date: 2013-09-20 13:06:36 +0200
 categories:
   - Ruby on Rails
 tags:

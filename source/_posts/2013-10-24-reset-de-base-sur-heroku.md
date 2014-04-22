@@ -2,7 +2,7 @@
 title: Reset de base sur Heroku
 author: Alain ANDRE
 layout: post
-permalink: /2013/10/24/reset_de_base_sur_heroku
+date: 2013-10-24 10:06:36 +0200
 categories:
   - Heroku
   - Ruby on Rails

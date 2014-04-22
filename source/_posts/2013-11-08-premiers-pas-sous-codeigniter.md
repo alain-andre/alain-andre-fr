@@ -2,7 +2,7 @@
 title: Premiers pas sous CodeIgniter
 author: Alain ANDRE
 layout: post
-permalink: /2013/11/08/premiers_pas_sous_codeigniter
+date: 2013-11-08 14:06:36 +0200
 categories:
   - Codeigniter
   - Petits tutos

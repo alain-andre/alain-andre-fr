@@ -2,7 +2,7 @@
 title: Générer des PDF avec wkhtmltopdf sur Heroku
 author: Alain ANDRE
 layout: post
-permalink: /2013/10/23/generer_des_pdfs_simplement_avec_wkhtmltopdf_sur_heroku
+date: 2013-10-23 01:06:36 +0200
 categories:
   - Heroku
   - Ruby on Rails

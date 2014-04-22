@@ -2,7 +2,7 @@
 title: 'Erreur d&#8217;affichage des images sous Heroku'
 author: Alain ANDRE
 layout: post
-permalink: /2013/10/16/erreur_daffichage_des_images_sous_heroku
+date: 2013-10-16 21:06:40 +0200
 categories:
   - Heroku
   - Ruby on Rails

@@ -2,7 +2,7 @@
 title: 'Impossible d&#8217;afficher un footer ou header avec wicked_pdf'
 author: Alain ANDRE
 layout: post
-permalink: /2014/02/18/Impossible_dafficher_un_footer_ou_header_avec_wicked_pdf
+date: 2014-02-18 18:06:36 +0200
 categories:
   - Ruby on Rails
 tags:

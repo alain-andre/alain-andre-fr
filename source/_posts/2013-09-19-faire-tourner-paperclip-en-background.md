@@ -2,7 +2,7 @@
 title: Faire tourner paperclip en background
 author: Alain ANDRE
 layout: post
-permalink: /2013/09/19/faire_tourner_paperclip_en_background
+date: 2013-09-19 18:06:36 +0200
 categories:
   - Amazon Web Services
   - Heroku

@@ -2,7 +2,7 @@
 title: 'Heroku : impossible de lancer rails 4.0'
 author: Alain ANDRE
 layout: post
-permalink: /2013/09/03/heroku_impossible_de_lancer_rails_4_0
+date: 2013-09-03 18:06:36 +0200
 categories:
   - Heroku
   - Ruby on Rails

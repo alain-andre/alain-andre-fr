@@ -2,7 +2,7 @@
 title: Format de date international en JavaScript et Ruby
 author: Alain ANDRE
 layout: post
-permalink: /2013/10/21/format_de_date_international_en_javascript_et_ruby
+date: 2013-10-21 20:07:36 +0200
 categories:
   - Ruby on Rails
 tags:

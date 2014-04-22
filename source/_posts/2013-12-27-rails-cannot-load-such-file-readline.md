@@ -2,7 +2,7 @@
 title: 'Rails cannot load such file readline'
 author: Alain ANDRE
 layout: post
-permalink: /2013/12/27/rails_cannot_load_such_file_readline
+date: 2013-12-27 21:06:36 +0200
 categories:
   - Ruby on Rails
 tags:

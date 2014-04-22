@@ -2,7 +2,7 @@
 title: 'Heroku : impossible de faire un pull'
 author: Alain ANDRE
 layout: post
-permalink: /2013/09/02/Heroku_impossible_de_faire_un_pull
+date: 2013-09-02 21:06:36 +0200
 categories:
   - Heroku
 tags:

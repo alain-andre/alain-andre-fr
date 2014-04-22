@@ -2,7 +2,7 @@
 title: Installation de NodeJs sous Ubuntu
 author: Alain ANDRE
 layout: post
-permalink: /2013/12/27/installation_de_nodejs_sous_ubuntu
+date: 2013-12-27 21:10:36 +0200
 categories:
   - Petits tutos
 tags:

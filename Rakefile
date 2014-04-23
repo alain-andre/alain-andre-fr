@@ -221,8 +221,7 @@ multitask :heroku do
   system "cp -R #{public_dir}/* #{deploy_dir}/public"
   puts "\n## copying #{public_dir} to #{deploy_dir}/public"
   cd "#{deploy_dir}" do
-    system "git add ."
-    system "git add -u"
+    system "git add -A"
     puts "\n## Committing: Site updated at #{Time.now.utc}"
     message = "Site updated at #{Time.now.utc}"
     system "git commit -m '#{message}'"

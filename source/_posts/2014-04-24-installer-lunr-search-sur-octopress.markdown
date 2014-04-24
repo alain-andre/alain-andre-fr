@@ -7,7 +7,7 @@ categories:
   - Ruby on Rails
 ---
 
-Ce post s'inspire de [jekyll-lunr-js-search](https://github.com/slashdotdash/jekyll-lunr-js-search) et de [octopress-lunr-js-search](https://github.com/yortz/octopress-lunr-js-search/blob/master/plugins/search_generator.rb). Je ne trouvais pas ces plugins faciles à installer/utiliser alors j'ai décidé de créer un thème minimaliste qui l'intégre directement. Ce thème est basé sur une structure permettant de [mettre à jour Octopress](http://octopress.org/docs/updating/).
+Ce post s'inspire de [jekyll-lunr-js-search](https://github.com/slashdotdash/jekyll-lunr-js-search) et de [octopress-lunr-js-search](https://github.com/yortz/octopress-lunr-js-search/blob/master/plugins/search_generator.rb). Je ne trouvais pas ces plugins faciles à installer/utiliser alors j'ai décidé de créer un thème minimaliste qui l'intégre directement. [Ce thème](https://github.com/alain-andre/octopress-lunr-theme) est basé sur une structure permettant de [mettre à jour Octopress](http://octopress.org/docs/updating/).
 
 ## Installation du plugin.
 Ce thème ne modifie que le fichier **source/_includes/custom/head.html**.
@@ -26,9 +26,12 @@ Cette partie explique comment installer rapidement le plugin ainsi que les struc
   mkdir -p source/search
   Creating new page: source/search/index.markdown
   $ echo "{% include custom/lunr_search/entries.html %}" >> source/search/index.markdown
+  $ cp .themes/octopress-lunr-theme/plugins/octopress_lunr_theme.rb plugins/octopress_lunr_theme.rb
   $ sed -i "/^simple_search:/c\simple_search: #" _config.yml
   $ sed -i "s/^default_asides: \[/default_asides: \[custom\/asides\/lunr_search.html, /" _config.yml
   $ bundle exec rake generate
+  $ git add -A
+  $ git commit -m "Installation de lunr-js-search"
 ```
 {% endraw %}
 

@@ -9,7 +9,7 @@ categories:
 
 Ce post s'inspire de [jekyll-lunr-js-search](https://github.com/slashdotdash/jekyll-lunr-js-search) et de [octopress-lunr-js-search](https://github.com/yortz/octopress-lunr-js-search/blob/master/plugins/search_generator.rb). Je ne trouvais pas ces plugins faciles à installer/utiliser alors j'ai décidé de créer un thème minimaliste qui l'intégre directement. [Ce thème](https://github.com/alain-andre/octopress-lunr-theme) est basé sur une structure permettant de [mettre à jour Octopress](http://octopress.org/docs/updating/).
 
-{% img /images/ 250 "Présentation de la vue recherche" %}
+{% img /images/capture.png "100%" "Présentation de la vue recherche" %}
 
 ## Installation du plugin.
 Ce thème ne modifie que le fichier **source/_includes/custom/head.html**.

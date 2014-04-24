@@ -1,5 +1,5 @@
 ---
-title: 'Mise en place d&#8217;une authentification sous CodeIgniter'
+title: Mise en place d'une authentification sous CodeIgniter
 author: Alain ANDRE
 layout: post
 date: 2013-11-24 20:06:36 +0200

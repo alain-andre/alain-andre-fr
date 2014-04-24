@@ -1,5 +1,5 @@
 ---
-title: 'Netinstall ubuntu ou comment se faire une distro super legère.'
+title: Netinstall ubuntu ou comment se faire une distro super legère.
 author: Alain ANDRE
 layout: post
 date: 2014-02-28 20:06:36 +0200

@@ -1,5 +1,5 @@
 ---
-title: 'Un gravatar si pas d&#8217;image'
+title: Un gravatar si pas d'image
 author: Alain ANDRE
 layout: post
 date: 2013-09-20 13:06:36 +0200

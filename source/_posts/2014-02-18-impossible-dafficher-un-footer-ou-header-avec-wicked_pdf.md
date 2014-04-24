@@ -1,5 +1,5 @@
 ---
-title: 'Impossible d&#8217;afficher un footer ou header avec wicked_pdf'
+title: "Impossible d'afficher un footer ou header avec wicked_pdf"
 author: Alain ANDRE
 layout: post
 date: 2014-02-18 18:06:36 +0200

@@ -1,5 +1,5 @@
 ---
-title: 'Rails cannot load such file readline'
+title: Rails cannot load such file readline
 author: Alain ANDRE
 layout: post
 date: 2013-12-27 21:06:36 +0200

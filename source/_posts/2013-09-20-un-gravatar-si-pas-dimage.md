@@ -11,7 +11,7 @@ tags:
 ---
 J'ai une classe `Contact` qui possède un avatar (gérée avec paperclip et le S3 d'Amazon). Mes contacts sont enregistrés lors de la validation de leur adresse e-mail; c'est l'unique champ utilisé pour la création. Je n'ai donc pas d'image disponible lors du premier affichage de leur profil sur le panel utilisé pour la modification. Étant donné que j'ai leur adresse e-mail, je veux afficher leur image [Gravatar][1] -Globally Recognized Avatar-
 
-Ma fonction appelée par mon contrôleur retourne un json afin d'afficher en ajax les informations dans le template HTML (cf ce [post][2]) :
+Ma fonction appelée par mon contrôleur retourne un json afin d'afficher en ajax les informations dans le template HTML :
 ```ruby Fonction get_contact
   def get_contact
       @contact = Contact.where(user_id: current_user.id, id: params[:id]).first
@@ -56,5 +56,4 @@ J'ai donc modifié la fonction afin qu'elle teste la présence d'une image et qu
 J'ai aussi modifié mon **template rabl** afin qu'il passe l'`@image` dans le noeud approprié.
 
  [1]: http://fr.gravatar.com/
- [2]: http://www.alain-andre.fr/?p=48
  [3]: http://fr.gravatar.com/site/implement/images/ruby/

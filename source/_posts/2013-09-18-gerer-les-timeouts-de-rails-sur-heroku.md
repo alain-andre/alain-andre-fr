@@ -23,4 +23,4 @@ Ceci va permettre à l'application de savoir si le délais de la requête est tr
 Maintenant il nous reste à debugger ces timeouts pour les éviter. Par exemple pour l'upload d'image via paperclip, on peut le faire tourner en [background][2]
 
  [1]: https://github.com/kch/rack-timeout
- [2]: http://www.alain-andre.fr/?p=113
+ [2]: http://www.alain-andre.fr/blog/2013/09/19/faire-tourner-paperclip-en-background/

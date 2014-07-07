@@ -115,7 +115,7 @@ La log du worker lors d'un upload en échec :
   [Worker(host:alain-p6715fr pid:8533)] 1 jobs processed at 18.7353 j/s, 1 failed
 ```
 
- [1]: http://www.alain-andre.fr/?p=105
+ [1]: http://www.alain-andre.fr/blog/2013/09/18/gerer-les-timeouts-de-rails-sur-heroku/
  [2]: https://github.com/thoughtbot/paperclip
  [3]: https://devcenter.heroku.com/articles/background-jobs-queueing
  [4]: http://aaronvb.com/articles/15-paperclip-amazon-s3-background-upload-using-starling-and-workling

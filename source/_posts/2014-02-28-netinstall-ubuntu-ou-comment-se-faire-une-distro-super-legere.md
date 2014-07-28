@@ -54,7 +54,7 @@ Voilà, maintenant nous pouvons ajouter les packages pour gnome.
   language-pack-fr language-pack-gnome-fr-base language-pack-gnome-fr gdm
 ```
 
-Cette installation m'a permis d'avoir un shell assez fluide mais pas suffisent pour moi.
+Cette installation m'a permis d'avoir un shell assez fluide mais pas suffisant pour moi.
 
 J'ai alors tenté une nouvelle installation avec au lieu de mettre **Gnome shell**, la **Lubuntu** minimale disponible via le netinstall. Au démarrage on peut même choisir un environnement netbook. Petite info pour installer Terminal : c'est LXTerminal :p
 

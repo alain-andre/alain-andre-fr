@@ -53,12 +53,12 @@ Une fois notre application créée, il est alors possible de générer le code n
 
 Par exemple pour générer un scaffold pour le contrôleur *Livre*
 ```bash
-rails g angular_template livres
-  create  app/assets/javascripts/controllers/Livres.js
-  create  app/assets/templates/Livres/index.html.haml
-  create  app/assets/templates/Livres/show.html.haml
-  create  app/assets/templates/Livres/edit.html.haml
-  create  app/assets/templates/Livres/new.html.haml
+rails g angular_template livre
+  create  app/assets/javascripts/controllers/Livre.js
+  create  app/assets/templates/Livre/index.html.haml
+  create  app/assets/templates/Livre/show.html.haml
+  create  app/assets/templates/Livre/edit.html.haml
+  create  app/assets/templates/Livre/new.html.haml
   insert  app/assets/javascripts/init.js
     gsub  app/assets/javascripts/init.js
   insert  app/assets/javascripts/application.js

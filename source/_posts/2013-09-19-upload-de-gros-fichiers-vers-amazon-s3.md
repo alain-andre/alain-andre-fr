@@ -44,7 +44,7 @@ On va commencer par créer la police dans notre controller afin de l'utiliser da
       ).gsub("n","")
 ```
 
-Nous allons pouvoir utiliser notre formulaire (ici en \[simple_form\]\[13\]) dans la vue appellée par notre controller :
+Nous allons pouvoir utiliser notre formulaire (ici en [simple_form](https://github.com/plataformatec/simple_form)) dans la vue appellée par notre controller :
 ```ruby
   <%= simple_form_for @friend, url: "#{ENV['AWS_BUCKET']}.s3.amazonaws.com" do |f| %>
     <%= f.hidden_field :key, :value => "uploads/" %>

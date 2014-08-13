@@ -15,10 +15,10 @@ tags:
 
 L'objectif de passer par un service de stockage externe est de rendre l'application plus rapide et plus sécurisée. En effet, la page avec ses scripts et ses CSS se chargera de votre serveur, mais les images seront elles chargées depuis un autre serveur. Personnellement, j’utilise [Paperclip][3] et le service d'Amazon [S3][4]. En plus d'externaliser l'accès aux images stockées, S3 permet de les stocker peu importe la taille pour un tarif attractif.
 
-Pour cela il faut déjà avoir un compte S3 ([tutoriel][5]) et avoir créé un **Bucket** afin de stocker les images de nos clients. On doit ajouter les gems suivantes : [PaperClip][6], [RMagick][7] (nécessite les paquets imagemagick et libmagickwand-dev sur les distros debian/ubuntu), [AWS-SDK][8] dans le Gemfile.
+Pour cela il faut déjà avoir un compte S3 ([tutoriel][5]) et avoir créé un **Bucket** afin de stocker les images de nos clients. On doit ajouter les gems suivantes : [paperclip][6], [rmagick][7] (nécessite les paquets imagemagick et libmagickwand-dev sur les distros debian/ubuntu), [aws-sdk][8] dans le Gemfile.
 
 Afin de spécifier à Paperclip que l'on utilise S3 comme service de stockage en production, on doit ajouter dans le fichier `config/environments/production.rb` les informations de sécurité. Je modifie aussi mon fichier `config/environments/development.rb` pour une validation en pre-prod.
-```ruby
+```ruby config/environments/production.rb
   config.paperclip_defaults = {
     :storage => :s3,
     :s3_credentials => {
@@ -33,18 +33,34 @@ Afin de spécifier à Paperclip que l'on utilise S3 comme service de stockage en
 Pour retrouver vos informations de sécurité, allez [ici][9]. Il suffit ensuite de configurer les variables d'environnement utilisées avec `heroku config:set`. Si vous utilisez [figaro][10] modifiez aussi votre fichier application.yml (Que vous avez **gitignore** évidement)
 
 Ensuite dans le modèle il nous faut ajouter un champ *avatar*, ou *image* mais je vais rester calqué sur le tuto d'heroku. On utilise la fonction `has_attached_file` du helper de paperclip qui prend en argument des options de traitement pour ImageMagick :
-```ruby
+```ruby app/model/friend.rb
   class Friend < ActiveRecord::Base
-    attr_accessible :avatar
 
-    # This method associates the attribute ":avatar" with a file attachment
+    # Associer l'attribut ":avatar" avec un fichier
     has_attached_file :avatar, styles: {
       thumb: '100x100>',
       square: '200x200#',
       medium: '300x300>'
     }
+
+    validates_attachment_content_type :avatar, :content_type => /\Aimage\/(jpg|jpeg|pjpeg|png|x-png|gif)\z/, :message => I18n.t('avatar.file_type_not_allowed')
   end
 ```
+
+**Note**: Depuis rails 4.1, l'affectation massive n'est plus autorisée, on ne peut plus utiliser `attr_accessible :avatar` mais on doit ajouter une fonction privée dans le controller de ce model.
+
+```ruby app/controller/
+class FriendsController < ApplicationController
+  # 
+
+  private
+
+    # Never trust parameters from the scary internet, only allow the white list through.
+    def friend_params
+      params.require(:friend).permit(:nom, ..., :avatar)
+    end
+end
+``` 
 
 Les symboles `>` et `#` sont les options de redimensionnement d'ImageMagick. Allez sur leur [doc][11] pour savoir ce qu'il en est. Mais de façon abrégée :
 
@@ -119,6 +135,6 @@ Afin d'éviter les timeouts, il est possible d'[uploader directement][14] vers l
  [10]: http://rubydoc.info/gems/figaro
  [11]: http://www.imagemagick.org/Usage/resize/#shrink
  [12]: https://github.com/thoughtbot/paperclip_demo/blob/master/app/views/friends/_form.html.erb
- [13]: http://www.alain-andre.fr/?p=105
- [14]: http://www.alain-andre.fr/?p=101
- [15]: http://www.alain-andre.fr/?p=113
+ [13]: http://www.alain-andre.fr/blog/2013/09/18/gerer-les-timeouts-de-rails-sur-heroku/
+ [14]: http://www.alain-andre.fr/blog/2013/09/19/upload-de-gros-fichiers-vers-amazon-s3/
+ [15]: http://www.alain-andre.fr/blog/2013/09/19/faire-tourner-paperclip-en-background/

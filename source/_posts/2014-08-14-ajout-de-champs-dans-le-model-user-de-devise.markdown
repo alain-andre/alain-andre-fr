@@ -5,10 +5,9 @@ date: 2014-08-14 23:49:33 +0200
 comments: true
 categories: [Ruby on Rails]
 tags: [devise, rails 4, custom field]
-published: false
 ---
 
-Depuis que Rails 4 n'autorise plus l'**attr_accessor** que l'on ajoutait dans le *Model*, il nous faut le configurer dans le *Controller* les champs qui seront persistants.
+Depuis que Rails 4 n'autorise plus l'**attr_accessor** que l'on ajoutait dans le *Model*, il nous faut configurer dans le *Controller* les champs qui seront persistants.
 
 Pour ajouter par exemple un nom à nos Users, il nous faut donc créer une migration tel que ci-dessous.
 ```ruby db/migrate/xxxxxxxxxxxxx_add_name_to_users.rb

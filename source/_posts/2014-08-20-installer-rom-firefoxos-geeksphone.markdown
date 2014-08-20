@@ -9,7 +9,7 @@ sudo apt-get install android-tools-adb android-tools-fastboot
 ```
 
 # Installation
-Une fois la ROM téléchargée, dézipez et allez avec le Terminal dans le dossier. Il faut regarder si le fichier *flash.sh* appelle les programmes en local (./adb) si c'est le cas, retirez les *./* de devant tous les programmes et passez à la suite.
+Une fois la ROM téléchargée, dézipez et allez avec votre Terminal dans le dossier. Il faut regarder si le fichier *flash.sh* appelle les programmes en local `./adb` si c'est le cas, retirez les `./` de devant tous les programmes et passez à la suite.
 
 Flachez votre téléphone.
 ```

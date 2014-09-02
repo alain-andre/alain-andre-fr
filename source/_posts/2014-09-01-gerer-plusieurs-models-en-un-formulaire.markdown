@@ -5,24 +5,21 @@ Dans cet article, nous allons voir comment créer en un seul formulaire deux mod
 ## Déclarations de nos modèles et accès aux attributs
 Afin d'éviter d'avoir à tenir compte dans notre contrôleur *ProjectsController* des sous-modèles (Tasks) contenus dans notre modèle principal (Project), nous allons utiliser les [NestedAttributes](http://api.rubyonrails.org/classes/ActiveRecord/NestedAttributes/ClassMethods.html) d'ActiveRecord.
 
-```ruby
-app/models/project.rb
+```ruby app/models/project.rb
 class Project < ActiveRecord::Base
   has_many :tasks
   accepts_nested_attributes_for :tasks, :reject_if => :all_blank, :allow_destroy => true
 end
 ```
 
-```ruby
-app/models/task.rb
+```ruby app/models/task.rb
 class Task < ActiveRecord::Base
   belongs_to :project
 end
 ```
 
 Ceci nous permet de laisser notre contrôleur de Project sans vraiment écrire comment seront enregistrées les Tasks. Les paramètres `reject_if` et `allow_destroy` vont nous garantir qu'une tâche ne serra pas créée si elle est vide et pourra être supprimée par le même biais qu'elle a été créée. si nous n'utilisions pas les NestedAttributes, l'action `create` devrait au moins avoir une ligne comme celle-ci pour créer une tâche.
-```ruby
-app/controllers/projects_controller.rb
+```ruby app/controllers/projects_controller.rb
 def create
   ...
   @task = @project.tasks.build(params[:task])
@@ -31,8 +28,7 @@ end
 ```
 
 Mais nous allons en fait simplement ajouter les attributs dans la whitelist.
-```ruby
-app/controllers/projects_controller.rb
+```ruby app/controllers/projects_controller.rb
 def create
   @project = Project.new(project_params)
  
@@ -54,8 +50,7 @@ end
 
 ## Les vues
 Une vue simple mais qui explique bien comment tout ceci fonctionne de base serrait :
-```ruby
-app/views/projects/_form.html.haml
+```ruby app/views/projects/_form.html.haml
   = form_for @project do |p| %>
     = p.fields_for :tasks do |t|
 ```
@@ -68,8 +63,7 @@ Cocoon nous livre deux méthodes `link_to_add_association` et `link_to_remove_as
 
 Ce qui donne dans notre cas les Partials suivants. Je vous réfère à la documentation pour connaître les détails des paramètres que l'on peut passer aux méthodes [link_to_add_association](https://github.com/nathanvda/cocoon/#link_to_add_association) et [link_to_remove_association](https://github.com/nathanvda/cocoon/#link_to_remove_association).
 
-```haml
-app/views/projects/_form.html.haml
+```haml app/views/projects/_form.html.haml
 = simple_form_for @project do |p|
   = p.input :name
   %h3 Tâches
@@ -79,8 +73,7 @@ app/views/projects/_form.html.haml
     = p.submit
 ```
 
-```haml
-app/views/projects/_task_fields.html.haml
+```haml app/views/projects/_task_fields.html.haml
   t.input :name
   = link_to_remove_association "remove task", t
 ```
@@ -93,6 +86,6 @@ Imaginons que vos projets aient un utilisateur référent (un Owner). Nous devri
   = link_to_add_association 'add a new person as owner', f, :owner
 ```
 
-### Sources
+## Sources
 [railsforum](http://archive.railsforum.com/viewtopic.php?id=717)
 [cocoon](https://github.com/nathanvda/cocoon/)

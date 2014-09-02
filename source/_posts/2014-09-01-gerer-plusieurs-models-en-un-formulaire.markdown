@@ -85,8 +85,8 @@ app/views/projects/_task_fields.html.haml
   = link_to_remove_association "remove task", t
 ```
 
-## Ajouter des tâches déjà existantes ?
-Imaginons que vos projets aient un utilisateur référent (un owner). Nous devrions pouvoir sélectionner lors du `link_to_add_association` une personne déjà existante. Et bien c'est possible comme ceci :
+## Lier un projet à une personne déjà existante ?
+Imaginons que vos projets aient un utilisateur référent (un Owner). Nous devrions pouvoir sélectionner lors du `link_to_add_association` une personne déjà existante. Et bien c'est possible comme ceci :
 
 ```ruby
     = f.association :owner, :collection => Person.all(:order => 'name'), :prompt => 'Choose an existing owner'
@@ -94,5 +94,5 @@ Imaginons que vos projets aient un utilisateur référent (un owner). Nous devri
 ```
 
 ### Sources
-http://archive.railsforum.com/viewtopic.php?id=717
-https://github.com/nathanvda/cocoon/
+[railsforum](http://archive.railsforum.com/viewtopic.php?id=717)
+[cocoon](https://github.com/nathanvda/cocoon/)

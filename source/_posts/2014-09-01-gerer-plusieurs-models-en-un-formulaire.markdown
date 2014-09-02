@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "Gérer plusieurs models avec un seul formulaire"
-date: 2014-08-18 18:24:25 +0200
+date: 2014-09-01 14:20:35 +0200
 comments: true
-private: true
+published: false
 categories:
   - Ruby on Rails
 tags :

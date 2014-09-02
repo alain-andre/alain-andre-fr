@@ -20,7 +20,7 @@ class Task < ActiveRecord::Base
 end
 ```
 
-Ceci nous permet de laisser notre contrôleur de Project sans vraiment se soucier de comment seront enregistrées les Tasks. Par exemple l'action `create` devrait avoir une ligne comme celle-ci si nous n'utilisions pas les NestedAttributes.
+Ceci nous permet de laisser notre contrôleur de Project sans vraiment écrire comment seront enregistrées les Tasks. Les paramètres `reject_if` et `allow_destroy` vont nous garantir qu'une tâche ne serra pas créée si elle est vide et pourra être supprimée par le même biais qu'elle a été créée. si nous n'utilisions pas les NestedAttributes, l'action `create` devrait au moins avoir une ligne comme celle-ci pour créer une tâche.
 ```ruby
 app/controllers/projects_controller.rb
 def create

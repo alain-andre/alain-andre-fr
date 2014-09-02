@@ -1,3 +1,16 @@
+---
+layout: post
+title: "Installer une ROM frefoxOS sous GeeksPhone"
+date: 2014-08-20 20:44:15 +0200
+comments: true
+categories:
+  - Petits tutos
+tags :
+  - firefox
+  - firefoxos
+  - geeksphone
+---
+
 # Prérequis
 ## La ROM de votre model
 Tou d'abord, il faut aller sur le site de [Geeksphone](http://downloads.geeksphone.com/) pour télécharger la ROM du model que vous utilisez.

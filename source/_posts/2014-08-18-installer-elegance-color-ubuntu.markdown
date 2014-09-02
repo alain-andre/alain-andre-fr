@@ -1,3 +1,15 @@
+---
+layout: post
+title: "Installer elegance color sous Ubuntu"
+date: 2014-08-18 18:24:25 +0200
+comments: true
+categories:
+  - Petits tutos
+tags :
+  - ubuntu
+  - gnome shell
+---
+
 Sous gnome shell, l'aspect de l'interface se gère via le Tweak Tool disponible dans la liste des programmes de votre système.
 
 # Elegance colors

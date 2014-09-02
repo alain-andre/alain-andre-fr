@@ -1,5 +1,5 @@
 ---
-title: Rails 4 et Ruby 2 sur une Ubuntu
+title: Installer Rails 4 et Ruby 2 sur une Ubuntu
 author: Alain ANDRE
 layout: post
 date: 2013-09-03 02:06:36 +0200
@@ -58,7 +58,9 @@ $ ruby -v
 ruby 2.0.0p0 (2013-02-24 revision 39474) [x86_64-linux]
 ```
 
-<!--more--> Bon tout ne marchant jamais de la même manière (enfin souvent), je viens de tomber sur un os en faisant une installation fraiche sur mon PC fixe. Au moment de lancer mon
+# Notes
+## No Readline support
+Bon tout ne marchant jamais de la même manière (enfin souvent), je viens de tomber sur un os en faisant une installation fraiche sur mon PC fixe. Au moment de lancer mon
 
 `rake db:reset`, j'ai le message suivant qui s'affiche :
 ```
@@ -76,8 +78,16 @@ On remet à jour les liens
 $ rbenv rehash
 $ rbenv local 2.0.0-p0
 ```
+## Cannot load such file -- readline (LoadError)
+Les versions 2.x de ruby ont un soucis avec readline. Une discution existe sur [ruby-build](https://github.com/sstephenson/ruby-build/issues/526)
 
-Et c'est parti !
+En gros, pour le moment il existe un patch qui permet de résoudre ce problème. 
+```bash 
+curl -fsSL https://gist.github.com/mislav/a18b9d7f0dc5b9efc162.txt | rbenv install --patch 2.1.1
+```
+
+Depuis le 09 mai 2014, les versions 2.0.0-p481 and 2.1.2 sont stables et n'ont pas besoin de patch.
+
 
  [1]: https://rvm.io/
  [2]: https://github.com/sstephenson/rbenv

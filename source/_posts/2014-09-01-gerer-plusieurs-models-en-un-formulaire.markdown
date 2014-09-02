@@ -1,3 +1,17 @@
+---
+layout: post
+title: "Gérer plusieurs models avec un seul formulaire"
+date: 2014-08-18 18:24:25 +0200
+comments: true
+private: true
+categories:
+  - Ruby on Rails
+tags :
+  - nestedattributes
+  - simple_form
+  - cocoon
+---
+
 La gestion des formulaires sous rails est tout simplement magique. Mais qu'en est-il lorsque nous avons une liaison avec un autre modèle ?
 
 Dans cet article, nous allons voir comment créer en un seul formulaire deux modèles. Nous allons nous atteler à la création d'un `Project` qui `has_many` `Tasks`.

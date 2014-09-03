@@ -92,7 +92,7 @@ Une vue simple mais qui explique bien comment tout ceci fonctionne de base serra
           = q.fields_for :answers, question.answers.find_or_initialize_by(participant: participant) do |a|
             = a.text_area :content
             = a.hidden_field :participant_id, participant.id
-    f.submit
+    = f.submit
 ```
 
 ## Pour une interaction plus active
@@ -100,30 +100,27 @@ Une vue simple mais qui explique bien comment tout ceci fonctionne de base serra
 
 Ce qui donne dans notre cas les Partials suivants. Je vous réfère à la documentation pour connaître les détails des paramètres que l'on peut passer aux méthodes [link_to_add_association](https://github.com/nathanvda/cocoon/#link_to_add_association) et [link_to_remove_association](https://github.com/nathanvda/cocoon/#link_to_remove_association).
 
-```haml app/views/projects/_form.html.haml
-= simple_form_for @project do |p|
-  = p.input :name
-  %h3 Tâches
-  = p.simple_fields_for :tasks do |task|
-    = render 'task_fields', :t => task
-    = link_to_add_association 'add task', p, :tasks
-    = p.submit
+```haml app/views/surveys/_form.html.haml
+
+  = form_for(@survey) do |f| %>
+    = @participants.each do |participant|
+      %h3= participant.name
+      = @questions.each do |question|
+        = question.content
+        = f.fields_for :questions, question do |q|
+          = q.fields_for :answers, question.answers.find_or_initialize_by(participant: participant) do |a|
+            = render 'answer_fields', :a => answers
+            = link_to_add_association 'add answer', a, :answers
+    = f.submit
 ```
 
-```haml app/views/projects/_task_fields.html.haml
-  t.input :name
-  = link_to_remove_association "remove task", t
-```
-
-## Lier un projet à une personne déjà existante ?
-Imaginons que vos projets aient un utilisateur référent (un Owner). Nous devrions pouvoir sélectionner lors du `link_to_add_association` une personne déjà existante. Et bien c'est possible comme ceci :
-
-```ruby
-    = f.association :owner, :collection => Person.all(:order => 'name'), :prompt => 'Choose an existing owner'
-  = link_to_add_association 'add a new person as owner', f, :owner
+```haml app/views/surveys/_answer_fields.html.haml
+  = a.text_area :content
+  = a.hidden_field :participant_id, participant.id
+  = link_to_remove_association "remove answer", a
 ```
 
 ## Sources
 [railsforum](http://archive.railsforum.com/viewtopic.php?id=717)
 [cocoon](https://github.com/nathanvda/cocoon/)
-[createdbypete](http://www.createdbypete.com/articles/working-with-nested-forms-and-a-many-to-many-association-in-rails-4/
+[createdbypete](http://www.createdbypete.com/articles/working-with-nested-forms-and-a-many-to-many-association-in-rails-4/)

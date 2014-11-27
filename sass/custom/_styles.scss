@@ -1,30 +1,33 @@
 // This File is imported last, and will override other styles in the cascade
 // Add styles here to make changes without digging in too much
 html {
-  background:$page-bg;
+  background-image: url('/images/html_bg.png') !important;
 }
 body {
   line-height: 1.8em;
   font-size:17px;
   max-width:1320px;
   > div {
-    background: #fff !important;
-    border-bottom:2px solid #f2f2f2;
+    background-image: url('/images/html_bg.png') !important;
+    border-bottom:2px solid $gris;
     > div {
-      border-right:2px solid #f2f2f2;
-      background: #fff !important;
+      border-right:2px solid $gris;
+      background-image: url('/images/html_bg.png') !important;
     }
   }
   > nav {
-    border-bottom:2px solid #f2f2f2;
+    background-image: url('/images/html_bg.png') !important;
+    border-top: solid .2em !important;
+    border-bottom: 2px solid $gris;
     li+li {
-      border-left:2px solid #f2f2f2;
+      border-left: 2px solid $gris;
     }
     a {
       font-family: $serif;
     }
   }
   >header {
+    background-image: url('/images/html_bg.png') !important;
     h1 a {
     font-weight: bold;
     }
@@ -36,7 +39,7 @@ body {
       a { text-decoration: none;
         &:hover {
           text-decoration: none;
-          color:$link-color;
+          color: $link-color;
           }
           }
         }
@@ -49,8 +52,8 @@ body {
     }
   }
   aside.sidebar {
-    background:#fff;
-    border-left:2px solid #f2f2f2;
+    background-image: url('/images/html_bg.png') !important;
+    border-left:2px solid $gris;
     height:100%;
     form .search {
       padding: .3em .5em 0;
@@ -59,7 +62,7 @@ body {
       line-height: 1.1em;
       width: 95%;
       background-color: #fff;
-      border: 2px solid #f2f2f2;
+      border: 2px solid $gris;
       color: #000;
       }
     input[type=text]:focus, textarea:focus {
@@ -67,6 +70,7 @@ body {
     }
   }
   #search-query{
+    border: solid .1em !important;
     background-image: url('/images/search.png');
     background-repeat: no-repeat;
     padding-left: 20px;
@@ -95,7 +99,7 @@ p {
     font-size: 1em;
   }
   .collapse-sidebar aside.sidebar {
-    background: #fff;
+    background-image: url('/images/html_bg.png') !important;
   }
 }
 .meta {

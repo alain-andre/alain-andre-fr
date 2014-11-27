@@ -32,6 +32,9 @@ body {
     font-weight: bold;
     }
   }
+  >footer {
+    background-image: url('/images/html_bg.png') !important;
+  }
   #content .blog-index article {
   header {
     h1 {
@@ -73,7 +76,7 @@ body {
     border: solid .1em !important;
     background-image: url('/images/search.png');
     background-repeat: no-repeat;
-    padding-left: 20px;
+    padding: 0.3em 0.2em 0.3em 20px !important;
     background-position: 0.2em 50%;
   }
   .toggle-sidebar {

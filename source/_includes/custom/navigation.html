@@ -1,4 +1,11 @@
 <ul class="main-navigation">
   <li><a href="{{ root_url }}/">Blog</a></li>
   <li><a href="{{ root_url }}/blog/archives">Archives</a></li>
+  <li>
+    <section id="search">
+      <form action="/search" method="get">
+        <input type="text" id="search-query" name="q" size="10" placeholder="Rechercher" autocomplete="off">
+      </form>
+    </section>
+  </li>
 </ul>

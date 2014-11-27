@@ -14,82 +14,124 @@ tags :
 
 La gestion des formulaires sous rails est tout simplement magique. Mais qu'en est-il lorsque nous avons une liaison avec un autre modèle ?
 
-Dans cet article, nous allons voir comment créer en un seul formulaire deux modèles. Nous allons nous atteler à la création d'un `Project` qui `has_many` `Tasks`.
+Dans cet article, nous allons voir comment gérer en un seul formulaire plusieurs modèles. Nous allons nous atteler à la création d'un questionnaire (Survey).
 
 ## Déclarations de nos modèles et accès aux attributs
-Afin d'éviter d'avoir à tenir compte dans notre contrôleur *ProjectsController* des sous-modèles (Tasks) contenus dans notre modèle principal (Project), nous allons utiliser les [NestedAttributes](http://api.rubyonrails.org/classes/ActiveRecord/NestedAttributes/ClassMethods.html) d'ActiveRecord.
+Afin d'éviter d'avoir à trop tenir compte dans notre contrôleur *SurveysController* des sous-modèles (Questions, Answers) contenus dans notre modèle principal (Survey), nous allons utiliser les [NestedAttributes](http://api.rubyonrails.org/classes/ActiveRecord/NestedAttributes/ClassMethods.html) d'ActiveRecord.
 
-```ruby app/models/project.rb
-class Project < ActiveRecord::Base
-  has_many :tasks
-  accepts_nested_attributes_for :tasks, :reject_if => :all_blank, :allow_destroy => true
+```ruby app/models/participant.rb
+class Participant < ActiveRecord::Base
+  has_many :answers
+  has_many :questions, through: :answers
 end
 ```
 
-```ruby app/models/task.rb
-class Task < ActiveRecord::Base
-  belongs_to :project
+```ruby app/models/survey.rb
+class Survey < ActiveRecord::Base
+  has_many :questions
+
+  accepts_nested_attributes_for :questions, :reject_if => :all_blank, :allow_destroy => true
 end
 ```
 
-Ceci nous permet de laisser notre contrôleur de Project sans vraiment écrire comment seront enregistrées les Tasks. Les paramètres `reject_if` et `allow_destroy` vont nous garantir qu'une tâche ne serra pas créée si elle est vide et pourra être supprimée par le même biais qu'elle a été créée. si nous n'utilisions pas les NestedAttributes, l'action `create` devrait au moins avoir une ligne comme celle-ci pour créer une tâche.
-```ruby app/controllers/projects_controller.rb
+```ruby app/models/question.rb
+class Question < ActiveRecord::Base
+  belongs_to :survey
+  has_many :answers
+  has_many :participants, through: :answers
+
+  accepts_nested_attributes_for :answers
+end
+```
+
+```ruby app/models/answer.rb
+class Answer < ActiveRecord::Base
+  belongs_to :participant
+  belongs_to :question
+end
+```
+
+Les paramètres `reject_if` et `allow_destroy` vont nous garantir qu'une question de serra pas créée si ses informations sont vides et pourra être supprimée par le même biais qu'elle a été créée. si nous n'utilisions pas les NestedAttributes, l'action `create` devrait au moins avoir une ligne comme celle-ci pour créer une question.
+```ruby app/controllers/surveys_controller.rb
 def create
   ...
-  @task = @project.tasks.build(params[:task])
+  @question = @survey.questions.build(params[:question])
   ...
 end
 ```
 
-Mais nous allons en fait simplement ajouter les attributs dans la whitelist.
+Nous allons modifier notre contrôleur de la façon suivante : ajouter les attributs dans la whitelist et créer l'action answers (notre model de jonction).
 ```ruby app/controllers/projects_controller.rb
-def create
-  @project = Project.new(project_params)
- 
-  respond_to do |format|
-    if @project.save
-      format.html { redirect_to(@project, :notice => 'Project was successfully created.') }
-      format.xml { render :xml => @project, :status => :created, :location => @project }
-    else
-      format.html { render :action => "new" }
-      format.xml { render :xml => @project.errors, :status => :unprocessable_entity }
-    end
+
+  before_action :set_survey, only: [:show, :edit, :update, :destroy, :answers]
+  
+  def answers
+    @participants = Participant.all
+    @questions = @survey.questions
   end
-end
+  
+  private
+    # whitelist
+    def survey_params
+      params.require(:survey).permit(:name,
+        :questions_attributes => [:id, :content,
+          :answers_attributes => [:id, :content, :participant_id]
+        ])
+    end
+```
 
-def project_params
-  params.require(:project).permit(tasks_attributes: [project_attributes:[]])
-end
+Notez dans la whitelist le `questions_attributes` qui contient le `answers_attributes` car nous passons par le model Answer pour trouver nos Questions ou nos Participants (le through).
+
+## La route
+Vous avez remarqué que notre contrôleur possède une fonction `answers` qui appèle `set_survey`. Ceci n'est pas une action RESTful et ne fonctionne pas comme ça. Nous devons donc la définir comme tel dans nos routes gràce à [on: :member](http://guides.rubyonrails.org/routing.html#adding-more-restful-actions)
+
+```ruby config/routes.rb
+
+  resources :surveys do
+    get 'answers', on: :member
+  end
+  resources :participants
 ```
 
 ## Les vues
 Une vue simple mais qui explique bien comment tout ceci fonctionne de base serrait :
-```ruby app/views/projects/_form.html.haml
-  = form_for @project do |p| %>
-    = p.fields_for :tasks do |t|
+```ruby app/views/surveys/_form.html.haml
+
+  = form_for(@survey) do |f| %>
+    = @participants.each do |participant|
+      %h3= participant.name
+      = @questions.each do |question|
+        = question.content
+        = f.fields_for :questions, question do |q|
+          = q.fields_for :answers, question.answers.find_or_initialize_by(participant: participant) do |a|
+            = a.text_area :content
+            = a.hidden_field :participant_id, participant.id
+    = f.submit
 ```
 
-Mais pour ajouter ou supprimer des Tasks du Project affiché, il nous faudrait faire bien plus. Heureusement, nous avons une Gem qui va grandement nous aider : [cocoon](https://github.com/nathanvda/cocoon). Attention, Cocoon fonctionne avec JQuery.
- 
-
-## Les vues
-Cocoon nous livre deux méthodes `link_to_add_association` et `link_to_remove_association` qui permettent d'ajouter et de supprimer un sous-modèle. Pour fonctionner, cette Gem a besoin d'un Partial nommé `_[sousModel]_fields.html.haml` pour afficher les sous-modèles.
+## Pour une interaction plus active
+[Cocoon](https://github.com/nathanvda/cocoon) nous livre deux méthodes `link_to_add_association` et `link_to_remove_association` qui permettent d'ajouter et de supprimer un sous-modèle. Pour fonctionner, cette Gem a besoin d'un Partial nommé `_[sousModel]_fields.html.haml` pour afficher les sous-modèles.
 
 Ce qui donne dans notre cas les Partials suivants. Je vous réfère à la documentation pour connaître les détails des paramètres que l'on peut passer aux méthodes [link_to_add_association](https://github.com/nathanvda/cocoon/#link_to_add_association) et [link_to_remove_association](https://github.com/nathanvda/cocoon/#link_to_remove_association).
 
-```haml app/views/projects/_form.html.haml
-= simple_form_for @project do |p|
-  = p.input :name
-  %h3 Tâches
-  = p.simple_fields_for :tasks do |task|
-    = render 'task_fields', :t => task
-    = link_to_add_association 'add task', p, :tasks
-    = p.submit
+```haml app/views/surveys/_form.html.haml
+
+  = form_for(@survey) do |f| %>
+    = @participants.each do |participant|
+      %h3= participant.name
+      = @questions.each do |question|
+        = question.content
+        = f.fields_for :questions, question do |q|
+          = q.fields_for :answers, question.answers.find_or_initialize_by(participant: participant) do |a|
+            = render 'answer_fields', :a => answers
+            = link_to_add_association 'add answer', a, :answers
+    = f.submit
 ```
 
-```haml app/views/projects/_task_fields.html.haml
-  t.input :name
-  = link_to_remove_association "remove task", t
+```haml app/views/surveys/_answer_fields.html.haml
+  = a.text_area :content
+  = a.hidden_field :participant_id, participant.id
+  = link_to_remove_association "remove answer", a
 ```
 
 ## Lier un projet à une personne déjà existante ?
@@ -104,3 +146,4 @@ Imaginons que vos projets aient un utilisateur référent (un Owner). Nous devri
 ## Sources
 [railsforum](http://archive.railsforum.com/viewtopic.php?id=717)
 [cocoon](https://github.com/nathanvda/cocoon/)
+[createdbypete](http://www.createdbypete.com/articles/working-with-nested-forms-and-a-many-to-many-association-in-rails-4/)

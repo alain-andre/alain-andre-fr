@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Installer une ROM frefoxOS sous GeeksPhone"
+title: "Installer une ROM firefoxOS sous GeeksPhone"
 date: 2014-08-20 20:44:15 +0200
 comments: true
 categories:

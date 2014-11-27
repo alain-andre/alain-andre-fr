@@ -3,7 +3,7 @@ layout: post
 title: "Gérer plusieurs models avec un seul formulaire"
 date: 2014-09-01 14:20:35 +0200
 comments: true
-published: false
+published: true
 categories:
   - Ruby on Rails
 tags :
@@ -96,6 +96,7 @@ Ce qui donne dans notre cas les Partials suivants. Je vous réfère à la docume
 Imaginons que vos projets aient un utilisateur référent (un Owner). Nous devrions pouvoir sélectionner lors du `link_to_add_association` une personne déjà existante. Et bien c'est possible comme ceci :
 
 ```ruby
+
     = f.association :owner, :collection => Person.all(:order => 'name'), :prompt => 'Choose an existing owner'
   = link_to_add_association 'add a new person as owner', f, :owner
 ```

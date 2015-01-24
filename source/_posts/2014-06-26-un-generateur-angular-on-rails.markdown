@@ -14,7 +14,7 @@ tags:
 ---
 
 # Informations
-Cette page a été modifiée suite à l'amélioration de l'intégration d'angularjs dans rails (cf. [Configurer Rails Avec AngularJS](http://0.0.0.0:4000/blog/2015/01/23/configurer-rails-avec-angularjs/))
+Cette page a été modifiée suite à l'amélioration de l'intégration d'angularjs dans rails (cf. [Configurer Rails Avec AngularJS](/blog/2015/01/23/configurer-rails-avec-angularjs/))
 
 Un [repo](https://github.com/alain-andre/ar-template) sous github est disponible et toujours en développement
 

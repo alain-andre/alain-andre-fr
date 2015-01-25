@@ -232,6 +232,14 @@ multitask :heroku do
   end
 end
 
+desc "Pull from github + heroku"
+task :pull do
+  system "git pull origin master"
+  cd "_heroku" do
+    system "git pull heroku master"
+  end
+end
+
 
 desc "Default deploy task"
 task :deploy do

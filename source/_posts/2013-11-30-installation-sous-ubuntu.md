@@ -2,6 +2,8 @@
 title: Installation de MongoDB, pymongo et bottle sous Ubuntu
 author: Alain ANDRE
 layout: post
+comments: true
+published: true
 date: 2013-11-30 21:07:36 +0200
 categories:
   - MongoDB

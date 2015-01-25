@@ -2,6 +2,8 @@
 title: Mise en place d'une authentification sous CodeIgniter
 author: Alain ANDRE
 layout: post
+comments: true
+published: true
 date: 2013-11-24 20:06:36 +0200
 categories:
   - Codeigniter

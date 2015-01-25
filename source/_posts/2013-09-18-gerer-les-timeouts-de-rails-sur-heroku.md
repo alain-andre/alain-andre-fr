@@ -2,6 +2,8 @@
 title: Gérer les timeouts de rails sur Heroku
 author: Alain ANDRE
 layout: post
+comments: true
+published: true
 date: 2013-09-18 15:06:36 +0200
 categories:
   - Heroku

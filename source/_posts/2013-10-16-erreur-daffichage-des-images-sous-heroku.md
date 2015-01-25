@@ -2,6 +2,8 @@
 title: Erreur d'affichage des images sous Heroku
 author: Alain ANDRE
 layout: post
+comments: true
+published: true
 date: 2013-10-16 21:06:40 +0200
 categories:
   - Heroku

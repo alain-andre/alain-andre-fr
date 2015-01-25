@@ -2,6 +2,8 @@
 title: 'Ubuntu : impossible de finir la sauvegarde'
 author: Alain ANDRE
 layout: post
+comments: true
+published: true
 date: 2014-02-18 17:06:36 +0200
 categories:
   - Petits tutos

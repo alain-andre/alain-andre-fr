@@ -2,6 +2,8 @@
 title: Créer sa propre gem
 author: Alain ANDRE
 layout: post
+comments: true
+published: true
 date: 2014-04-15 15:01:36 +0200
 categories:
   - Ruby on Rails

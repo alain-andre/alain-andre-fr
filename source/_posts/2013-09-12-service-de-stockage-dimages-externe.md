@@ -2,6 +2,8 @@
 title: Service de stockage d'images externe
 author: Alain ANDRE
 layout: post
+comments: true
+published: true
 date: 2013-09-12 12:09:16 +0200
 categories:
   - Amazon Web Services

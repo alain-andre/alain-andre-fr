@@ -2,6 +2,8 @@
 title: Premiers pas sous CodeIgniter
 author: Alain ANDRE
 layout: post
+comments: true
+published: true
 date: 2013-11-08 14:06:36 +0200
 categories:
   - Codeigniter

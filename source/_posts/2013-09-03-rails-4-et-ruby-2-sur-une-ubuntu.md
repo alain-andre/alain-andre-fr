@@ -2,6 +2,8 @@
 title: Installer Rails 4 et Ruby 2 sur une Ubuntu
 author: Alain ANDRE
 layout: post
+comments: true
+published: true
 date: 2013-09-03 02:06:36 +0200
 categories:
   - Ruby on Rails

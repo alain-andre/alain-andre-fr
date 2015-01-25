@@ -2,6 +2,8 @@
 title: Reset de base sur Heroku
 author: Alain ANDRE
 layout: post
+comments: true
+published: true
 date: 2013-10-24 10:06:36 +0200
 categories:
   - Heroku

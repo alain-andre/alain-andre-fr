@@ -2,6 +2,8 @@
 title: Upload de gros fichiers vers Amazon S3
 author: Alain ANDRE
 layout: post
+comments: true
+published: true
 date: 2013-09-19 23:06:36 +0200
 categories:
   - Amazon Web Services

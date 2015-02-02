@@ -3,12 +3,12 @@ layout: post
 title: "Une API avec grape"
 date: 2015-02-02 18:23:00 +0100
 comments: true
-published: false
+published: true
 categories: 
   - Ruby on Rails
-  - angularjs
 tags :
-  - angular
+  - ruby
+  - rails
   - webapp
 ---
 [Grape](https://github.com/intridea/grape) est un framework qui permet de créer des APIs REST. [Monterail](http://monterail.com) met à disposition sur son [blog](http://codetunes.com/2014/introduction-to-building-apis-with-grape/) son expérience sur le développement d'une telle API et c'est vraiment sympa car il est difficile de trouver un guide sur comment faire; la [documentation](https://github.com/intridea/grape#basic-usage) de grape n'est pas vraiment accessible à première vue, mais une fois compris le principe ci-dessous, elle est très complète et utile (comme toute doc. d’ailleurs).

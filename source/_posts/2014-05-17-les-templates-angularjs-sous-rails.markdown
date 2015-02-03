@@ -4,7 +4,7 @@ title: "Les templates angularjs sous rails"
 date: 2014-05-17 10:24:25 +0200
 comments: true
 categories:
-  - AngularJS
+  - angularjs
 tags :
   - angular
   - webapp

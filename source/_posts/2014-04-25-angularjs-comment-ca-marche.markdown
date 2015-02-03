@@ -4,7 +4,7 @@ title: "AngularJS, comment ça marche"
 date: 2014-04-25 02:30:20 +0200
 comments: true
 categories: 
-  - AngularJS
+  - angularjs
 tags :
   - angular
   - webapp

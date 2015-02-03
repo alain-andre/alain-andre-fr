@@ -8,7 +8,6 @@ categories:
   - angularjs
 tags:
   - angular
-  - angularjs
   - rails
   - templating
 ---

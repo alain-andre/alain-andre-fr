@@ -5,9 +5,9 @@ date: 2014-05-06 01:51:39 +0200
 comments: true
 categories: 
   - Ruby on Rails
-  - AngularJS
+  - angularjs
 tags:
-  - AngularJS
+  - angularjs
   - webapp
   - rails
 ---

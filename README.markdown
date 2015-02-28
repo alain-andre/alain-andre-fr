@@ -1,4 +1,8 @@
 ## Commandes rake disponibles
+
+### Pull
+Pull from github and for the heroku directory.
+
 ### New post
 Crée un article en demandant le titre
 `bundle exec rake new_post`
@@ -10,6 +14,11 @@ Affiche au fil de l'eau les posts même s'ils sont en published: false
 ### Deploy
 Deploie le site sur Heroku
 `bundle exec rake deploy`
+
+## Benchmarks du projet
+[![Code Climate](https://codeclimate.com/github/alain-andre/alain-andre-fr/badges/gpa.svg)](https://codeclimate.com/github/alain-andre/alain-andre-fr)
+[![Test Coverage](https://codeclimate.com/github/alain-andre/alain-andre-fr/badges/coverage.svg)](https://codeclimate.com/github/alain-andre/alain-andre-fr)
+[![Build Status](https://secure.travis-ci.org/alain-andre/alain-andre-fr.png)](http://travis-ci.org/alain-andre/alain-andre-fr)
 
 ## What is Octopress?
 

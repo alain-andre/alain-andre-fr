@@ -17,7 +17,7 @@ Pour cela il faut utiliser le service `$resource` qui est disponible avec le Jav
 angular.module("myapp", ['ngResource']);
 ```
 
-Il faut aussi un serveur [RESTful](http://0.0.0.0:4000/blog/2015/02/02/une-api-avec-grape/) de votre choix.
+Il faut aussi un serveur [RESTful](/blog/2015/02/02/une-api-avec-grape/) de votre choix.
 
 # La mise en place
 ## L'ajout d'un service

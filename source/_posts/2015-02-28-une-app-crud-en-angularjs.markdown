@@ -23,8 +23,7 @@ Il faut aussi un serveur [RESTful](/blog/2015/02/02/une-api-avec-grape/) de votr
 ## L'ajout d'un service
 L'objectif est de définir un service qui va retourner les cinq fonctions suivantes `get()`, `query()`, `save()`, `remove()` et `delete()` via l'objet `$resource` auquel on a passé l'url pour l'objet que l'on souhaite. Ici `Phone` va devenir un objet accessible dans notre contrôleur.
 
-```javascript
-// app/assets/javascripts/service.js
+```javascript app/assets/javascripts/service.js
 angular.module('myApp.services').factory('Phone', ['$resource',
   function($resource){
     return $resource('api/v1/phones/:id', { id: '@_id' }, {
@@ -37,8 +36,7 @@ On définit `{ id: '@_id' }` afin d'utiliser l'`_id` de l'instance en cours de l
 
 ## Le paramétrage des routes
 Il nous reste à paramétrer les routes pour cet objet Phone.
-```javascript
-// app/assets/javascripts/routes.js
+```javascript app/assets/javascripts/routes.js
 $stateProvider.state('phones', { // state for showing all phones
   url: '/phones',
   templateUrl: 'phones/index.html',
@@ -61,8 +59,7 @@ $stateProvider.state('phones', { // state for showing all phones
 ## Le contrôleur
 Il est maintenant possible de définir les fonctions accessibles via le `$scope` de l'application dans chacun des contrôleurs liés à notre objet `Phone`.
 
-```javascript
-// app/assets/javascripts/controller.js
+```javascript app/assets/javascripts/controller.js
 angular.module('myApp.controllers').controller('PhoneListCtrl', function($scope, $state, $window, Phone) {
   $scope.phones = Phone.query(); //fetch all phones. Issues a GET to /api/phones
  

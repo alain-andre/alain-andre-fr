@@ -5,6 +5,10 @@ date: 2015-02-28 00:38:17 +0100
 comments: true
 published: true
 categories: 
+  - angularjs
+tags :
+  - angularjs
+  - webapp
 ---
 
 L'objectif est de créer une application AngularJS avec les opérations de stockage de données CRUD.

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Middleman sur Heroku à l'aide de travis-ci"
+title: "Déployer Middleman sur Heroku via Travis CI"
 date: 2015-03-05 14:48:42 +0100
 comments: true
 published: true

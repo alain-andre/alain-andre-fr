@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Intégrer BrowserId à une app. AngularJs"
+title: "Intégrer BrowserId à une app. Rails/AngularJs"
 date: 2015-04-06 17:50:48 +0200
 comments: true
 published: true
@@ -13,10 +13,10 @@ tags :
   - browserid
 ---
 
-Afin d'identifier les utilisateurs, [devise_browserid_authenticatable](https://github.com/denschub/devise_browserid_authenticatable) va permettre une identification via BrowserId. 
+Afin d'identifier les utilisateurs, nous allons utiliser [devise_browserid_authenticatable](https://github.com/denschub/devise_browserid_authenticatable) qui va nous permettre d'utiliser [BrowserId](https://login.persona.org/about). 
 
 # Installation et configuration
-L'ajout de la gem au fichier Gemfile `gem "devise_browserid_authenticatable"`
+Il faut ajouter la ligne suivante au Gemfile : `gem "devise_browserid_authenticatable"`
 
 Une fois le `bundle` mis à jour, il faut générer l'`initializer`
 ```bash
